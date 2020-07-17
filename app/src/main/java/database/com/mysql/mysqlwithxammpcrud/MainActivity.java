@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,9 +39,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Doregister gg = new Doregister();
                 gg.execute("");
-                Toast.makeText(MainActivity.this, "Successfully", Toast.LENGTH_SHORT).show();
-                Intent smsWrite = new Intent(MainActivity.this,SmsWrite.class);
-                startActivity(smsWrite);
+                //Toast.makeText(MainActivity.this, "Successfully", Toast.LENGTH_SHORT).show();
+                //Intent smsWrite = new Intent(MainActivity.this,SmsWrite.class);
+                //startActivity(smsWrite);
+               // conn = xammpConnector.CONN();
+              //  Log.e("354435",""+conn);
             }
         });
 
@@ -53,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         protected String doInBackground(String... params) {
 
             conn = xammpConnector.CONN();
+          Log.e("354435",""+conn);
             String Sql = "insert into ross(name,age,email) values(?,?,?)";
 
             try {

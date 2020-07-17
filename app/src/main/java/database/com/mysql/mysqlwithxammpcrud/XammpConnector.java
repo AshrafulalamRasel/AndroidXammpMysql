@@ -1,6 +1,8 @@
 package database.com.mysql.mysqlwithxammpcrud;
 
 
+import android.util.Log;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -17,12 +19,13 @@ public class XammpConnector {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://10.0.2.2:3306/Infor", "root", "");
+            con = DriverManager.getConnection("jdbc:mysql://192.168.0.105:3306/Infor", "admin", "admin");
 
         } catch (SQLException e) {
+            Log.e("1",e.getMessage());
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            Log.e("2",e.getMessage());
         }
 
         return con;
